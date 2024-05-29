@@ -9,7 +9,7 @@ function EthProvider({ children }) {
   const initBlockchain = useCallback(async (artifact) => {
     if (artifact) {
       const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-      const accounts = await web3.eth.requestAccounts();
+      const accounts = await web3.eth.getAccounts();
       const networkID = await web3.eth.net.getId();
       const { abi } = artifact;
       let address, contract;
